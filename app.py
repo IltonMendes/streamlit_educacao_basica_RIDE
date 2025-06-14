@@ -1,3 +1,8 @@
+
+
+
+
+
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
@@ -12,10 +17,8 @@ porta = "5432"
 banco = "iesb"
 
 engine = create_engine(f"postgresql+psycopg2://{usuario}:{senha}@{host}:{porta}/{banco}")
-nome_tabela = "educacao_basica"
-data_ride = pd.read_sql(f"SELECT * FROM {nome_tabela}", con=engine)
-
-# Dados do GitHub
+nome_view = "educacao_basica_ride_df"
+data_ride = pd.read_sql(f"SELECT * FROM {nome_view}", con=engine)
 DATA_URL = "https://raw.githubusercontent.com/usuario/repositorio/main/educacao_basica_ride_df.csv"
 
 # Colunas de interesse
