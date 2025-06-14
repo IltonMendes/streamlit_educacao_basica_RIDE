@@ -5,11 +5,12 @@ import plotly.express as px
 from sqlalchemy import create_engine
 
 # Configuração do banco
-usuario = "data_iesb"
-senha = "wjDfqcUxfjtYXp04tr0S"
-host = "rds-prod.cmt2mu288c4s.us-east-1.rds.amazonaws.com"
-porta = "5432"
-banco = "iesb"
+usuario = st.secrets["banco"]["usuario"]
+senha = st.secrets["banco"]["senha"]
+host = st.secrets["banco"]["host"]
+porta = st.secrets["banco"]["porta"]
+banco = st.secrets["banco"]["banco"]
+
 
 engine = create_engine(f"postgresql+psycopg2://{usuario}:{senha}@{host}:{porta}/{banco}")
 nome_view = "educacao_basica_ride_df"
